@@ -1,0 +1,23 @@
+void solve(string input,string output,vector<string>&ans)
+   {
+       if(input.length()==0)
+       {
+           ans.push_back(output);
+           return;
+       }
+       string op1=output;
+       string op2=output;
+       op1.push_back(input[0]);
+       input.erase(input.begin()+0);
+       solve(input,op1,ans);
+       solve(input,op2,ans);
+       return;
+   }
+		vector<string> AllPossibleStrings(string s){
+		       vector<string>ans;
+     string output;
+     solve(s,output,ans);
+     sort(ans.begin(),ans.end());
+     ans.erase(ans.begin());
+     return ans;
+		}
